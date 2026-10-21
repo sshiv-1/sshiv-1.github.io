@@ -1,5 +1,7 @@
 <!doctype html>
 <html lang="en"><head>
+<script>try{var t=localStorage.getItem("theme");if(t!=="dark"&&t!=="light")t=matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light";document.documentElement.dataset.theme=t}catch(e){document.documentElement.dataset.theme="light"}</script>
+<meta name="color-scheme" content="light dark">
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Shiv Shankar Singh · AI Systems &amp; ML</title>
 <meta name="description" content="Shiv Shankar Singh: EE undergrad at NIT Jalandhar building multi-agent AI systems, ML experiments and data-driven software.">
@@ -12,14 +14,16 @@
 @font-face{font-family:'OnePlus Sans';font-weight:400;font-style:normal;font-display:swap;src:url('assets/fonts/OnePlusSans-Regular.ttf') format('truetype')}
 @font-face{font-family:'OnePlus Sans';font-weight:600 700;font-style:normal;font-display:swap;src:url('assets/fonts/OnePlusSans-Bold.ttf') format('truetype')}
 :root{--bg:#F7FAFF;--pale:#EAF3FF;--lite:#DCEBFF;--blue:#3268B2;--strong:#2455A4;--text:#172B45;--sec:#5C6D82;--dim:#9fb0c6;--line:#D8E3F0;--mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;--sans:'OnePlus Sans',system-ui,-apple-system,'Segoe UI',sans-serif}
+:root{--surf:#fff;--mute:#EFF4FA;--topbg:rgba(247,250,255,.95);--onstrong:#fff;--warnbg:#FFF7E6;--bdbg:#FFF8E5;--bdc:#8a5a00;--bdl:#d9b45e}
+[data-theme=dark]{color-scheme:dark;--bg:#0b1526;--surf:#11223a;--pale:#142a47;--lite:#1c3a62;--blue:#6ea8f5;--strong:#9cc4ff;--text:#e7eefb;--sec:#a6b8d0;--dim:#6a82a0;--line:#274565;--mute:#16294a;--topbg:rgba(11,21,38,.94);--onstrong:#0b1526;--warnbg:#3a2f12;--bdbg:#3a2f12;--bdc:#f1cf85;--bdl:#7a6125}
 *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:64px}
 body{margin:0;background:var(--bg);color:var(--text);font:400 15.5px/1.7 var(--sans);overflow-x:hidden}
 main{counter-reset:ln}a{color:var(--strong);text-decoration:none}a:hover{text-decoration:underline}
 :focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 #prog{position:fixed;top:0;left:0;height:2px;width:0;background:linear-gradient(90deg,#7fb2f0,var(--strong));z-index:50}
-.top{position:sticky;top:0;z-index:40;background:rgba(247,250,255,.95);border-bottom:1px solid var(--line)}
+.top{position:sticky;top:0;z-index:40;background:var(--topbg);border-bottom:1px solid var(--line)}
 .top div{max-width:880px;margin:0 auto;padding:0 20px;height:50px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.ic{display:flex;gap:8px}.ic a{width:26px;height:26px;border:1px solid var(--line);border-radius:4px;display:grid;place-items:center;font:600 11px var(--mono);color:var(--sec);background:#fff}
+.ic{display:flex;gap:8px}.ic a{width:26px;height:26px;border:1px solid var(--line);border-radius:4px;display:grid;place-items:center;font:600 11px var(--mono);color:var(--sec);background:var(--surf)}
 .ic a:hover{color:var(--strong);border-color:var(--blue);text-decoration:none}
 .top nav{display:flex;gap:16px;font-size:14px;overflow-x:auto;white-space:nowrap}.top nav a{color:var(--sec)}.top nav a:hover,.top nav a.on{color:var(--strong);text-decoration:none}
 .c{max-width:880px;margin:0 auto;padding:0 20px 0 72px}
@@ -29,38 +33,38 @@ main{counter-reset:ln}a{color:var(--strong);text-decoration:none}a:hover{text-de
 .hero .id{font:13px var(--mono);color:var(--dim)}h1{font:700 38px/1.15 'OnePlus Sans',var(--sans);margin:2px 0 4px;letter-spacing:-.01em}
 .links{display:flex;flex-wrap:wrap;gap:6px 18px;font:13.5px var(--mono);margin-top:22px}
 .ph{width:128px;height:128px;border:1px solid var(--line);outline:1px solid var(--blue);outline-offset:3px;background:var(--lite);position:relative}
-.ph img,.ph svg{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.ph img{object-position:center 22%}.ph img,.ph svg{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
 .sh{font:600 15px var(--mono);color:var(--strong);border-bottom:1px solid var(--line);padding:12px 0;margin:64px 0 22px;display:flex;justify-content:space-between}
 .sh,.sh *{font-family:var(--mono)}.sh small{font:400 13px var(--mono);color:var(--dim)}
 .gl{font:500 13px var(--mono);margin:30px 0 12px}.gl:before{content:"";display:inline-block;width:8px;height:8px;background:var(--g);margin-right:8px}
 .tiles{display:flex;flex-wrap:wrap;gap:14px}
-.tile{width:164px;border:1px solid var(--line);background:#fff;border-radius:3px;padding:0;cursor:pointer;font:13px var(--mono);color:var(--text);text-align:center}
+.tile{width:164px;border:1px solid var(--line);background:var(--surf);border-radius:3px;padding:0;cursor:pointer;font:13px var(--mono);color:var(--text);text-align:center}
 .tile .tn{display:block;padding:9px 4px;border-top:1px solid var(--line)}
 .tile:hover,.tile.sel{border-color:var(--blue);box-shadow:0 4px 14px rgba(36,85,164,.12)}
 .th{position:relative;height:104px;background:var(--pale);display:block}.th svg,.th img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .th i{position:absolute;bottom:3px;left:6px;right:6px;display:flex;justify-content:space-between;font:10.5px var(--mono);color:var(--sec);font-style:normal}.th i b{color:var(--strong);font-weight:600}
-svg .a{stroke:var(--blue);fill:none;stroke-width:1.5}svg .b{fill:var(--blue)}svg .c{fill:var(--lite);stroke:var(--blue);stroke-width:1.2}svg .d{stroke:#8aa6c9;fill:none;stroke-dasharray:3 3}svg .t{font:9px var(--mono);fill:var(--sec)}svg .w{fill:#fff;stroke:var(--blue);stroke-width:1.2}
-.det{border:1px solid var(--line);border-left:3px solid var(--blue);background:#fff;padding:18px 22px;margin-top:20px;font-size:15px}
+svg .a{stroke:var(--blue);fill:none;stroke-width:1.5}svg .b{fill:var(--blue)}svg .c{fill:var(--lite);stroke:var(--blue);stroke-width:1.2}svg .d{stroke:#8aa6c9;fill:none;stroke-dasharray:3 3}svg .t{font:9px var(--mono);fill:var(--sec)}svg .w{fill:var(--surf);stroke:var(--blue);stroke-width:1.2}
+.det{border:1px solid var(--line);border-left:3px solid var(--blue);background:var(--surf);padding:18px 22px;margin-top:20px;font-size:15px}
 .det h3{margin:0 0 2px;font:600 18px var(--sans)}.meta{font:12.5px var(--mono);color:var(--sec);margin-bottom:8px}
 .tag{display:inline-block;font:12px var(--mono);background:var(--lite);color:var(--strong);padding:1px 8px;border-radius:3px;margin:0 6px 6px 0}
 .lk{display:flex;flex-wrap:wrap;gap:4px 16px;font:13.5px var(--mono);margin-top:8px}
-.note{border-left:3px solid var(--blue);background:var(--pale);padding:10px 14px;font-size:14px;margin:12px 0}.warn{border-color:#b7791f;background:#FFF7E6}
-.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font:12.5px var(--mono);margin:8px 0 12px}.flow span{background:#fff;border:1px solid var(--blue);border-radius:3px;padding:3px 9px}.flow u{text-decoration:none;color:var(--blue)}
+.note{border-left:3px solid var(--blue);background:var(--pale);padding:10px 14px;font-size:14px;margin:12px 0}.warn{border-color:#b7791f;background:var(--warnbg)}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font:12.5px var(--mono);margin:8px 0 12px}.flow span{background:var(--surf);border:1px solid var(--blue);border-radius:3px;padding:3px 9px}.flow u{text-decoration:none;color:var(--blue)}
 ul.t{margin:8px 0;padding-left:18px;font-size:14.5px}ul.t li{margin-bottom:5px}code{font:13px var(--mono);background:var(--mute,#EFF4FA);padding:0 4px}
-.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.chips button,select,.pg button{font:500 12.5px var(--mono);padding:5px 12px;border:1px solid var(--line);background:#fff;color:var(--text);border-radius:3px;cursor:pointer}
-.chips button[aria-pressed=true],.pg button.on{background:var(--strong);color:#fff;border-color:var(--strong)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}.chips button,select,.pg button{font:500 12.5px var(--mono);padding:5px 12px;border:1px solid var(--line);background:var(--surf);color:var(--text);border-radius:3px;cursor:pointer}
+.chips button[aria-pressed=true],.pg button.on{background:var(--strong);color:var(--onstrong);border-color:var(--strong)}
 .post{display:flex;gap:18px;margin:24px 0}.post .pt{flex:none;width:76px;height:76px;border:1px solid var(--line);background:var(--pale);position:relative}.post .pt svg{width:100%;height:100%}
 .post h4{margin:0;font:600 15.5px var(--sans)}.post .m{font:12.5px var(--mono);color:var(--sec);margin-left:6px;font-weight:400}.post p{margin:2px 0 4px;color:var(--sec);font-size:14.5px}
 .gt{border-left:1px solid var(--line);margin-left:6px;padding-left:24px}.gt .it{position:relative;margin:0 0 24px}
 .gt .it:before{content:"";position:absolute;left:-30px;top:8px;width:9px;height:9px;border-radius:50%;border:1.5px solid var(--dim);background:var(--bg)}
 .gt .it.hd:before{background:var(--blue);border-color:var(--blue);box-shadow:0 0 0 4px var(--lite)}
-.hdb{font:600 10.5px var(--mono);background:var(--blue);color:#fff;padding:1px 7px;border-radius:2px;margin-left:8px}
-.bd{display:inline-block;font:500 13px var(--mono);border:1px solid #d9b45e;background:#FFF8E5;color:#8a5a00;padding:3px 12px;border-radius:3px;margin-right:8px}
-.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.pg{border:1px solid var(--line);background:#fff;padding:18px}.pg h3{margin:0 0 6px;font:600 15px var(--mono)}
+.hdb{font:600 10.5px var(--mono);background:var(--blue);color:var(--onstrong);padding:1px 7px;border-radius:2px;margin-left:8px}
+.bd{display:inline-block;font:500 13px var(--mono);border:1px solid var(--bdl);background:var(--bdbg);color:var(--bdc);padding:3px 12px;border-radius:3px;margin-right:8px}
+.pgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.pg{border:1px solid var(--line);background:var(--surf);padding:18px}.pg h3{margin:0 0 6px;font:600 15px var(--mono)}
 .log{background:#0f2036;color:#dbe9fb;font:12.5px/1.7 var(--mono);padding:12px;min-height:200px;margin-top:10px;border-radius:3px}.log .r{color:#8fc0ff}.log .bad{color:#ffb4a8}.log .ok{color:#9be3b0}
 .row{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0;align-items:center}
 .br{display:grid;grid-template-columns:104px 1fr 54px;gap:8px;align-items:center;font:12px var(--mono);margin:6px 0}.br .tr{background:var(--pale);height:14px}.br .f{height:100%;background:var(--blue)}.br.base .f{background:var(--text)}.br.sel .f{background:#d97706}
-img.fig{max-width:100%;border:1px solid var(--line);background:#fff;display:block}
+img.fig{max-width:100%;border:1px solid var(--line);background:var(--surf);display:block}
 #gsvg g{cursor:pointer}#gsvg g:hover circle,#gsvg g:focus circle{fill:var(--lite)}
 .cap{font:12.5px var(--mono);color:var(--sec)}
 footer{margin:70px 0 60px;padding-top:18px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;font:13.5px var(--mono);color:var(--dim)}footer span a{margin-left:14px}
@@ -68,13 +72,22 @@ footer{margin:70px 0 60px;padding-top:18px;border-top:1px solid var(--line);disp
 svg .d{animation:flow .9s linear infinite}svg .b,svg .c,svg .w{transform-box:fill-box;transform-origin:center;animation:pulse 1.8s ease-in-out infinite}svg .w:nth-of-type(odd){animation-delay:.5s}
 .th svg *,.pt svg *{animation-play-state:paused}.tile:hover svg *,.tile:focus-visible svg *,.tile.sel svg *,.post:hover svg *{animation-play-state:running}
 @media(prefers-reduced-motion:reduce){svg *{animation:none!important}}
+body,.top,.tile,.det,.pg,.rd{transition:background-color .25s,color .25s,border-color .25s}
+[data-theme=dark] img.fig{filter:brightness(.88)}
+.tt{width:26px;height:26px;border:1px solid var(--line);border-radius:4px;background:var(--surf);color:var(--sec);cursor:pointer;font:14px/1 var(--sans);padding:0}.tt:hover{color:var(--strong);border-color:var(--blue)}
+.top nav a.rc{border:1px solid var(--blue);padding:0 10px;border-radius:4px;color:var(--strong)}
+.rm[hidden]{display:none}.rm{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:16px;overflow:auto}.rb{position:fixed;inset:0;background:rgba(8,16,30,.6)}
+.rd{position:relative;background:var(--surf);border:1px solid var(--line);border-radius:8px;max-width:440px;width:100%;padding:30px 26px 26px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.rd h2{margin:0 0 10px;font:700 20px var(--sans)}.re{font-size:15px;color:var(--strong);word-break:break-all;margin:6px 0 18px}
+.rbtn{display:inline-block;background:var(--strong);color:var(--onstrong);padding:10px 22px;border-radius:4px;font:600 14px var(--mono)}.rbtn:hover{text-decoration:none;opacity:.9;color:var(--onstrong)}
+.rx{position:absolute;top:6px;right:8px;background:none;border:0;font-size:28px;line-height:1;color:var(--sec);cursor:pointer;padding:4px 10px}.rx:hover{color:var(--text)}
 @media(max-width:760px){.c{padding-left:20px}.ln:before{display:none}.hero{grid-template-columns:1fr}.pgrid{grid-template-columns:1fr}h1{font-size:30px}.tile{width:calc(50% - 7px)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 </style></head><body>
 <div id="prog"></div>
 <header class="top"><div>
-<div class="ic" style="padding:0;height:auto;max-width:none"><a href="mailto:shhiiivvvvv@gmail.com" aria-label="Email"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14"/><path d="M3 7l9 7 9-7"/></svg></a><a href="https://github.com/sshiv-1" target="_blank" rel="noopener" aria-label="GitHub">gh</a><a href="https://www.linkedin.com/in/shiv-shankar-singh-0924b832a" target="_blank" rel="noopener" aria-label="LinkedIn">in</a><a href="https://x.com/shhiiivvvvv" target="_blank" rel="noopener" aria-label="X">x</a><a href="https://leetcode.com/u/shhiiivvvvv/" target="_blank" rel="noopener" aria-label="LeetCode">lc</a></div>
-<nav id="nav" aria-label="Primary"><a href="#projects">projects</a><a href="#fiat">fiat</a><a href="#sage">sage</a><a href="#lab">lab</a><a href="#playground">playground</a><a href="#skills">skills</a><a href="#experience">experience</a><a href="#achievements">achievements</a><a href="#contact">contact</a></nav>
+<div class="ic" style="padding:0;height:auto;max-width:none"><a href="mailto:shhiiivvvvv@gmail.com" aria-label="Email"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14"/><path d="M3 7l9 7 9-7"/></svg></a><a href="https://github.com/sshiv-1" target="_blank" rel="noopener" aria-label="GitHub">gh</a><a href="https://www.linkedin.com/in/shiv-shankar-singh-0924b832a" target="_blank" rel="noopener" aria-label="LinkedIn">in</a><a href="https://x.com/shhiiivvvvv" target="_blank" rel="noopener" aria-label="X">x</a><a href="https://leetcode.com/u/shhiiivvvvv/" target="_blank" rel="noopener" aria-label="LeetCode">lc</a><button id="tt" class="tt" type="button" aria-label="Switch to dark theme" aria-pressed="false">☾</button></div>
+<nav id="nav" aria-label="Primary"><a href="#about">about</a><a href="#projects">projects</a><a href="#fiat">fiat</a><a href="#sage">sage</a><a href="#lab">lab</a><a href="#playground">playground</a><a href="#skills">skills</a><a href="#experience">experience</a><a href="#achievements">achievements</a><a href="#contact">contact</a><a href="#" role="button" data-resume class="rc">resume</a></nav>
 </div></header>
 <main><div class="c">
 <div class="hero">
@@ -83,9 +96,9 @@ svg .d{animation:flow .9s linear infinite}svg .b,svg .c,svg .w{transform-box:fil
 <h1 class="ln">Shiv Shankar Singh</h1>
 <div class="ln dim">Electrical Engineering undergrad at <a href="https://www.nitj.ac.in" target="_blank" rel="noopener">NIT Jalandhar</a> · AI Systems</div>
 <p class="ln dim" style="max-width:560px;margin:14px 0 0">I build multi-agent AI systems, implement ML from scratch, and turn experiments into working software. Still learning, already shipping; every claim below links to code.</p>
-<div class="links ln"><a href="mailto:shhiiivvvvv@gmail.com">✉ shhiiivvvvv@gmail.com</a><a href="https://github.com/sshiv-1" target="_blank" rel="noopener">github</a><a href="https://www.linkedin.com/in/shiv-shankar-singh-0924b832a" target="_blank" rel="noopener">linkedin</a><a href="https://leetcode.com/u/shhiiivvvvv/" target="_blank" rel="noopener">leetcode</a><a href="resume/Shiv_Shankar_Singh_Resume.pdf" target="_blank" rel="noopener">résumé ↗</a></div>
+<div class="links ln"><a href="mailto:shhiiivvvvv@gmail.com">✉ shhiiivvvvv@gmail.com</a><a href="https://github.com/sshiv-1" target="_blank" rel="noopener">github</a><a href="https://www.linkedin.com/in/shiv-shankar-singh-0924b832a" target="_blank" rel="noopener">linkedin</a><a href="https://leetcode.com/u/shhiiivvvvv/" target="_blank" rel="noopener">leetcode</a><a href="#" role="button" data-resume>résumé</a></div>
 </div>
-<div class="ph" role="img" aria-label="Profile photo"><svg viewBox="0 0 128 128"><rect width="128" height="128" fill="#DCEBFF"/><text x="64" y="76" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-weight="600" font-size="38" fill="#2455A4">ss</text></svg><img src="assets/profile.jpg" alt="Shiv Shankar Singh" onerror="this.remove()"></div>
+<div class="ph" role="img" aria-label="Profile photo"><svg viewBox="0 0 128 128"><text x="64" y="76" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-weight="600" font-size="38" style="fill:var(--strong)">ss</text></svg><img src="assets/pfp.jpeg" alt="Portrait of Shiv Shankar Singh" width="128" height="128" onerror="this.remove()"></div>
 </div>
 
 <div class="sh ln" id="about"><span>@@ about @@</span></div>
@@ -109,7 +122,7 @@ svg .d{animation:flow .9s linear infinite}svg .b,svg .c,svg .w{transform-box:fil
 <div class="note ln">Deployment (Render + Vercel) is described in the README. This site cannot call the backend itself.</div>
 
 <div class="sh ln" id="lab"><span>@@ ai engineering lab @@</span><small id="lidx"></small></div>
-<p class="ln dim">Notes and experiments from <a href="https://github.com/sshiv-1/ai-engineering-lab" target="_blank" rel="noopener">ai-engineering-lab</a>, each linked to the file. Descriptions summarise file names and folder contents; open the notebook for results.</p>
+<p class="ln dim">A collection from <a href="https://github.com/sshiv-1/ai-engineering-lab" target="_blank" rel="noopener">ai-engineering-lab</a>, split into individual entries. Each was written from its own notebook or script (code cells, imports, printed outputs). Results are only quoted where the notebook prints them; I have not re-run anything.</p>
 <div class="chips ln" id="chips" role="group" aria-label="Filter lab entries"></div>
 <div id="posts" aria-live="polite"></div>
 
@@ -153,14 +166,26 @@ svg .d{animation:flow .9s linear infinite}svg .b,svg .c,svg .w{transform-box:fil
 
 <div class="sh ln" id="contact"><span>@@ contact @@</span></div>
 <p class="ln">Open to interesting engineering problems and collaborations. Email is quickest.</p>
-<footer class="ln"><span>// EOF · © <span id="yr"></span> Shiv Shankar Singh · independent projects &amp; learning experiments</span><span><a href="mailto:shhiiivvvvv@gmail.com">email</a><a href="https://github.com/sshiv-1" target="_blank" rel="noopener">github</a><a href="https://www.linkedin.com/in/shiv-shankar-singh-0924b832a" target="_blank" rel="noopener">linkedin</a><a href="https://leetcode.com/u/shhiiivvvvv/" target="_blank" rel="noopener">leetcode</a><a href="https://x.com/shhiiivvvvv" target="_blank" rel="noopener">x</a><a href="https://pinterest.com/shiiivv1806" target="_blank" rel="noopener">pinterest</a><a href="#about">top ↑</a></span></footer>
+<p class="ln dim">Want my latest résumé? <a href="#" role="button" data-resume>Request a copy</a> and I will send it to you directly.</p>
+<footer class="ln"><span>// EOF · © <span id="yr"></span> Shiv Shankar Singh · independent projects &amp; learning experiments</span><span><a href="mailto:shhiiivvvvv@gmail.com">email</a><a href="https://github.com/sshiv-1" target="_blank" rel="noopener">github</a><a href="https://www.linkedin.com/in/shiv-shankar-singh-0924b832a" target="_blank" rel="noopener">linkedin</a><a href="https://leetcode.com/u/shhiiivvvvv/" target="_blank" rel="noopener">leetcode</a><a href="https://x.com/shhiiivvvvv" target="_blank" rel="noopener">x</a><a href="https://pinterest.com/shiiivv1806" target="_blank" rel="noopener">pinterest</a><a href="#" role="button" data-resume>resume</a><a href="#about">top ↑</a></span></footer>
 </div></main>
+<div id="rm" class="rm" hidden><div class="rb" data-close></div><div class="rd" role="dialog" aria-modal="true" aria-labelledby="rt" aria-describedby="rp"><button class="rx" type="button" data-close aria-label="Close dialog">×</button><h2 id="rt">Résumé</h2><p id="rp">Want my latest resume? Please contact me at the email below, and I'll send you the most recent copy directly.</p><p class="mono re">shhiiivvvvv@gmail.com</p><a class="rbtn" href="mailto:shhiiivvvvv@gmail.com?subject=Resume%20request">Email Me</a></div></div>
 <script>
 const $=s=>document.querySelector(s),B='https://github.com/sshiv-1/ai-engineering-lab/',G='https://github.com/sshiv-1/';
 $('#yr').textContent=new Date().getFullYear();
+// theme
+const root=document.documentElement,tt=$('#tt');
+function setTheme(t,save){root.dataset.theme=t;tt.textContent=t==='dark'?'☀':'☾';tt.setAttribute('aria-label',t==='dark'?'Switch to light theme':'Switch to dark theme');tt.setAttribute('aria-pressed',String(t==='dark'));if(save)try{localStorage.setItem('theme',t)}catch(e){}}
+setTheme(root.dataset.theme==='dark'?'dark':'light');tt.onclick=()=>setTheme(root.dataset.theme==='dark'?'light':'dark',1);
+try{matchMedia('(prefers-color-scheme:dark)').addEventListener('change',e=>{if(!localStorage.getItem('theme'))setTheme(e.matches?'dark':'light')})}catch(e){}
+// resume modal (contact only; no file is served)
+const rm=$('#rm');let lastF=null;
+function openR(){lastF=document.activeElement;rm.hidden=false;document.body.style.overflow='hidden';rm.querySelector('.rbtn').focus()}
+function closeR(){rm.hidden=true;document.body.style.overflow='';if(lastF&&lastF.focus)lastF.focus()}
+document.addEventListener('click',e=>{if(e.target.closest('[data-resume]')){e.preventDefault();openR();return}if(e.target.closest('[data-close]'))closeR()});
+document.addEventListener('keydown',e=>{if(rm.hidden)return;if(e.key==='Escape'){closeR();return}if(e.key==='Tab'){const f=[...rm.querySelectorAll('button,a[href]')],i=f.indexOf(document.activeElement);if(e.shiftKey&&i<=0){e.preventDefault();f[f.length-1].focus()}else if(!e.shiftKey&&i===f.length-1){e.preventDefault();f[0].focus()}}});
 addEventListener('scroll',()=>{const d=document.documentElement;$('#prog').style.width=(scrollY/(d.scrollHeight-innerHeight||1)*100)+'%'},{passive:true});
 const na=[...document.querySelectorAll('#nav a')];new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&na.forEach(a=>a.classList.toggle('on',a.hash==='#'+e.target.id))),{rootMargin:'-30% 0px -65% 0px'}).observe&&document.querySelectorAll('.sh[id]').forEach(s=>window.__o=(window.__o||new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&na.forEach(a=>a.classList.toggle('on',a.hash==='#'+e.target.id))),{rootMargin:'-30% 0px -65% 0px'})).observe(s));
-fetch('resume/Shiv_Shankar_Singh_Resume.pdf',{method:'HEAD'}).then(r=>{if(!r.ok)throw 0}).catch(()=>{if(location.protocol!=='file:')document.querySelectorAll('a[href^="resume/"]').forEach(a=>a.style.display='none')});
 // ---- thumbnails
 const R=(x,y,w,h,c='c')=>`<rect class="${c}" x="${x}" y="${y}" width="${w}" height="${h}" rx="2"/>`,L=(a,b,c,d,k='a')=>`<path class="${k}" d="M${a} ${b}L${c} ${d}"/>`,O=(x,y,r,c='w')=>`<circle class="${c}" cx="${x}" cy="${y}" r="${r}"/>`;
 const net=(ls,x0=26,dx=56)=>{let s='',P=ls.map((n,i)=>Array.from({length:n},(_,j)=>[x0+i*dx,52+(j-(n-1)/2)*18]));P.forEach((l,i)=>i&&l.forEach(p=>P[i-1].forEach(q=>s+=L(q[0],q[1],p[0],p[1],'d'))));P.flat().forEach(p=>s+=O(p[0],p[1],5));return s};
@@ -177,14 +202,16 @@ pers:()=>O(82,18,6)+O(46,44,6)+O(118,44,6)+[28,64,100,136].map(x=>O(x,72,5,'c'))
 scratch:()=>`<path class="d" d="M20 70 150 20"/>`+[[30,50],[44,38],[58,52],[40,64],[70,42],[28,30]].map(p=>O(p[0],p[1],3.5,'c')).join('')+[[100,70],[120,58],[90,52],[135,48],[114,34],[140,66]].map(p=>O(p[0],p[1],3.5,'b')).join(''),
 grid:()=>Array.from({length:12},(_,i)=>R(14+(i%4)*36,12+Math.floor(i/4)*24,30,18,i==5?'b':'c')).join('')
 };
+TH.pitch=()=>R(14,10,136,68,'a')+L(82,10,82,78)+O(82,44,13,'a')+O(82,44,2.5,'b')+R(14,26,24,36,'a')+R(126,26,24,36,'a')+DOT('M30 44L58 28L102 58L134 38',3.2);
 const svg=(k,vb='0 0 164 104')=>`<svg viewBox="${vb}" aria-hidden="true">${TH[k]()}</svg>`;
 // ---- projects
 const P=[
 ['fiat','agents','fiat','fiat',['max iter','3'],'Fiat — multi-agent AI coding agent','AI agents · developer tools · alpha · on PyPI','Terminal-native coding assistant coordinating Planner, Coder, Tester and Reviewer with role-based tool permissions, a capped feedback loop, and a provider abstraction (Gemini, OpenAI, Anthropic, OpenRouter, Groq). See the full write-up below.',['Python','LLMs','CLI'],[['repository',G+'fiat'],['source',G+'fiat/tree/main/src'],['pypi','https://pypi.org/project/fiat-pup/']]],
 ['sage','agents','sage','sage',['pipeline','5 stages'],'SAGE — research & presentation studio','AI agents · full-stack · deployed (per résumé)','LangGraph pipeline (router, research, planner, parallel workers, reducer) behind a FastAPI backend and React/TypeScript frontend, with Supabase auth. Turns a topic into a cited article and a slide deck.',['LangGraph','FastAPI','React','Supabase'],[['repository',G+'blog-writing-with-research-agent'],['backend',G+'blog-writing-with-research-agent/tree/main/backend'],['frontend',G+'blog-writing-with-research-agent/tree/main/frontend']]],
 ['tumour-mri','deep learning & vision','tumour-mri','tumour',['preproc','CLAHE'],'Brain tumour MRI classification','computer vision · educational project','<b>Educational only; not a clinically validated diagnostic tool.</b> Two implementations: <i>TumourCNN</i> (custom 4-block CNN, PyTorch, <code>metrics.json</code> records accuracy 0.96) and <i>tumour-detection</i> (ResNet18 backend, React/TypeScript frontend, Docker Compose; UI states 90.08% test accuracy). Both crop to the largest contour and apply CLAHE. Different models and splits, so the numbers aren’t comparable; I haven’t reproduced them.',['PyTorch','OpenCV','React','Docker'],[['tumour-detection',G+'tumour-detection'],['backend',G+'tumour-detection/tree/main/backend'],['frontend',G+'tumour-detection/tree/main/frontend'],['training',G+'tumour-detection/tree/main/training'],['TumourCNN',G+'TumourCNN/tree/main/app']]],
-['ai-eng-lab','deep learning & vision','ai-eng-lab','lab',['entries','13'],'AI Engineering Lab','ML from first principles','Algorithms from scratch, backprop, optimization experiments, PyTorch basics, CNN visualisation, saliency, Word2Vec. Broken into individual entries in the lab section below.',['NumPy','PyTorch','Jupyter'],[['repository',G+'ai-engineering-lab'],['lab entries','#lab']]],
+['ai-eng-lab','deep learning & vision','ai-eng-lab','lab',['entries','32'],'AI Engineering Lab','ML from first principles · parent collection','The lab is shown as a collection, not one project: classical-ML algorithms from scratch, optimisation and initialisation experiments, PyTorch notebooks, NLP and computer-vision work, and two end-to-end projects, split into 32 individual entries below.',['NumPy','PyTorch','Keras'],[['repository',G+'ai-engineering-lab'],['browse entries','#lab']]],
 ['load-forecast','data & forecasting','load-forecast','forecast',['test RMSE','1.1772'],'Volatility-aware load forecasting','time-series experiment','Does volatility-aware switching or an ARIMA/SARIMA hybrid improve a Conv1D–LSTM on 24-step electricity-demand forecasts? In the README’s tests, no. Results are specific to that dataset and setup (see result below).',['Conv1D-LSTM','ARIMA','time series'],[['repository',G+'volatility-aware-load-forecasting'],['notebooks',G+'volatility-aware-load-forecasting/tree/main/notebooks'],['plots',G+'volatility-aware-load-forecasting/tree/main/plots']]],
+['laliga','data & forecasting','la-liga','pitch',['seasons','12'],'La Liga 2027 Prediction & Football Analytics','sports analytics · notebooks','League tables for 12 La Liga seasons (2014–15 to 2025–26, 240 club-seasons) are scraped from FBref with pandas, saved to one CSV, explored (champions, points-per-match trend, relegation counts) and used to train a 200-tree RandomForestClassifier that scores each club’s champion probability from points per match, goal difference, wins, losses and pace-projected points. It trains on seasons before 2024 and is applied to the 2024 table. <b>Caveats:</b> the notebook logs training-set accuracy of 1.000, which says nothing about generalisation; its champion probabilities are model estimates, not outcomes; and the notebook I inspected scores the 2024 season, not a 2027 one. The repo has no README.',['pandas','scikit-learn','plotly','FBref data'],[['repository',G+'laliga-2027-prediction'],['analysis notebook',G+'laliga-2027-prediction/blob/main/Data%20Analysis.ipynb'],['scraper notebook',G+'laliga-2027-prediction/blob/main/Data_Scrapper.ipynb'],['dataset',G+'laliga-2027-prediction/blob/main/La_liga_data_2014-2026.csv']]],
 ['f1-quali','data & forecasting','f1-quali','f1',['model','GBR'],'Formula 1 qualifying prediction','sports analytics','FastF1 lap data, median imputation, Gradient Boosting regression evaluated with MAE and R², then a simulated Q3 ranking for the 2025 Dutch GP. The ranking is a simulation, not a historical result.',['FastF1','Gradient Boosting','Streamlit'],[['repository',G+'F1_Analyisis'],['script',G+'F1_Analyisis/blob/main/dutch_quali.py'],['demo (README link, unchecked)','https://f1analyisis-jn5h455gttaueihhvwtbfy.streamlit.app/']]],
 ['mental-health','data & forecasting','mental-health','mental',['rows','1,259'],'Mental health in the tech workplace','exploratory data science','OSMI 2014 survey (1,259 rows, 25 columns): EDA, classification, regression and clustering into four employee personas. Observational and exploratory; not causal or clinical.',['pandas','scikit-learn','Jupyter'],[['repository',G+'ol_lp_089'],['notebooks',G+'ol_lp_089/tree/main/Notebooks']]],
 ['personality','data & forecasting','personality','pers',['model','RF'],'Personality prediction','Streamlit experiment','Random Forest on about 30 features predicting Extrovert, Ambivert or Introvert. Experimental; not a validated psychological assessment.',['Random Forest','Streamlit'],[['repository',G+'Personality-Prediction'],['app',G+'Personality-Prediction/blob/main/main.py']]],
@@ -209,31 +236,331 @@ box.innerHTML=/<script/i.test(x)?`<object type="image/svg+xml" data="assets/thum
 const s=box.querySelector('svg');if(s)s.style.cssText='width:100%;height:100%';old.replaceWith(box)}catch(e){}});
 sel('fiat');
 // ---- lab
+const CAT=['classical ML','deep learning','NLP','computer vision','time series','end-to-end'];
+const href=p=>p.startsWith('http')?p:B+(/\.\w+$/.test(p)?'blob':'tree')+'/main/'+p;
+const lb=(p,m)=>(/\.ipynb$/.test(p)?'view notebook':/\.\w+$/.test(p)?'view code':'view folder')+(m?': '+p.split('/').pop():'');
 const LAB=[
-['classical ML','Models from scratch','Linear/logistic regression, KNN, decision tree and random forest as standalone Python files.','tree/main/classical-ml/models-from-scratch','scratch','NumPy','read the source'],
-['classical ML','Churn-rate notebook','A notebook-based classical ML workflow on churn rate.','blob/main/classical-ml/churn_rate.ipynb','scratch','Jupyter','view notebook'],
-['deep learning','Backpropagation from scratch','Backprop implemented step by step in a notebook, to see how gradients flow.','blob/main/deep-learning-fundamentals/backpropagation/backpropagation_from_scratch.ipynb','lab','NumPy','view notebook'],
-['deep learning','Optimization experiments','Seven notebooks: gradient descent, EWMA, Xavier/Glorot init, regularization, dropout (classification and regression), tuner.','tree/main/deep-learning-fundamentals/optimization','lab','Jupyter','explore notebooks'],
-['deep learning','PyTorch fundamentals','Autograd, nn.Module, training pipeline, Fashion-MNIST ANN, CNN, Optuna, audio classification, RNN.','tree/main/deep-learning-fundamentals/pytorch-basics','lab','PyTorch','explore notebooks'],
-['computer vision','CNN visualiser','A notebook for looking inside a CNN, including its learned features.','blob/main/computer-vision/cnn-visualiser.ipynb','grid','CNN','view notebook'],
-['computer vision','Saliency experiment','Saliency maps on cartoon images: which pixels drive the model’s output.','blob/main/computer-vision/the-simpson-saliency.ipynb','grid','saliency','view notebook'],
-['computer vision','Single-image data augmentation','Augmentation techniques applied to one image.','blob/main/computer-vision/single-image-data-augmentation.ipynb','grid','augmentation','view notebook'],
-['computer vision','OpenCV scripts','Reading, drawing, colour spaces, transforms, capture and H.264 scripts.','tree/main/computer-vision/opencv','grid','OpenCV','read the source'],
-['NLP','Word2Vec on Friends scripts','Word2Vec on a corpus of Friends scripts (<code>Datasets/friends</code>); the repo also keeps the Word2Vec paper PDF (arXiv 1301.3781).','blob/main/deep-learning-fundamentals/rnn-nlp-basics/word2vec_freinds.ipynb','mental','Word2Vec','view notebook'],
-['NLP','Text preprocessing &amp; BPTT','Text preprocessing and backpropagation-through-time notebooks.','tree/main/deep-learning-fundamentals/rnn-nlp-basics','mental','RNN','explore notebooks'],
-['time series','Time-series analysis','Early notebook; the more developed work is the forecasting project above.','blob/main/deep-learning-fundamentals/time-series-analysis/01.ipynb','forecast','time series','view notebook'],
-['applications','End-to-end projects','Tumour classification (app + notebook) and load forecasting; both also exist as standalone repos above.','tree/main/projects','tumour','apps','explore projects']];
-const cats=['all',...new Set(LAB.map(x=>x[0]))];let cur='all';
+[
+"classical ML",
+"Linear regression from scratch",
+"Linear regression written as a Python class in NumPy, with matplotlib plots of the fit.",
+"scratch",
+"Python · NumPy · matplotlib",
+"",
+"classical-ml/models-from-scratch/shivs-lr.py"
+],
+[
+"classical ML",
+"Logistic regression from scratch",
+"Hand-written sigmoid, loss and gradient updates in a LogisticRegression class, with its own make_classification helper and plots.",
+"scratch",
+"Python · NumPy · matplotlib",
+"",
+"classical-ml/models-from-scratch/shiv-log-reg.py"
+],
+[
+"classical ML",
+"K-nearest neighbours from scratch",
+"A KNNClf class that classifies by distance to stored points; scikit-learn is imported alongside NumPy for data and plotting.",
+"scratch",
+"Python · NumPy · scikit-learn",
+"",
+"classical-ml/models-from-scratch/shiv-knn.py"
+],
+[
+"classical ML",
+"Decision tree from scratch",
+"Node and DecisionTree classes that split and grow a tree, plus a plot_decision_boundary helper to see the regions it learns.",
+"scratch",
+"Python · NumPy · matplotlib",
+"",
+"classical-ml/models-from-scratch/DecisionTree.py"
+],
+[
+"classical ML",
+"Random forest from scratch",
+"A RandomForest class built on the hand-written decision tree (it imports DecisionTree.py), with its own decision-boundary plot.",
+"scratch",
+"Python · NumPy · matplotlib",
+"",
+"classical-ml/models-from-scratch/random-forest.py"
+],
+[
+"classical ML",
+"Customer churn prediction",
+"Notebook on BankChurners.csv with pandas, seaborn and plotly exploration, scikit-learn utilities and a small Keras network (Dense 3 sigmoid, then 1 sigmoid).",
+"scratch",
+"pandas · scikit-learn · Keras · plotly",
+"",
+"classical-ml/churn_rate.ipynb"
+],
+[
+"deep learning",
+"Backpropagation and MLP from scratch",
+"A multi-layer network in NumPy: parameter initialisation, forward pass and gradient updates, trained for 150 epochs, with plots.",
+"lab",
+"Python · NumPy · pandas",
+"",
+"deep-learning-fundamentals/backpropagation/backpropagation_from_scratch.ipynb"
+],
+[
+"deep learning",
+"Gradient descent: stochastic vs batch",
+"Keras models trained with batch size 1 and with the full batch, timing each run to compare speed and behaviour.",
+"lab",
+"Keras · scikit-learn · pandas",
+"",
+"deep-learning-fundamentals/optimization/gd.ipynb"
+],
+[
+"deep learning",
+"Exponentially weighted moving average",
+"A hand-written EWMA (s = beta·s_prev + (1−beta)·x) applied at beta 0.9 and 0.5 and plotted: the smoothing idea behind momentum.",
+"lab",
+"Python · NumPy · pandas",
+"",
+"deep-learning-fundamentals/optimization/ewma.ipynb"
+],
+[
+"deep learning",
+"Xavier/Glorot initialisation",
+"Weight-initialisation experiments in TensorFlow, with seven plots (mlxtend is used for visualisation).",
+"lab",
+"TensorFlow · mlxtend",
+"",
+"deep-learning-fundamentals/optimization/xavier_glorat.ipynb"
+],
+[
+"deep learning",
+"Regularisation experiments",
+"Notebook with nine plots exploring regularisation in a TensorFlow model, using mlxtend and seaborn for visualisation.",
+"lab",
+"TensorFlow · mlxtend · seaborn",
+"",
+"deep-learning-fundamentals/optimization/regularization.ipynb"
+],
+[
+"deep learning",
+"Dropout: classification and regression",
+"Two notebooks comparing models with and without dropout, one for classification and one for regression.",
+"lab",
+"TensorFlow/Keras · scikit-learn",
+"",
+[
+"deep-learning-fundamentals/optimization/dropout_clf.ipynb",
+"deep-learning-fundamentals/optimization/dropout_reg.ipynb"
+]
+],
+[
+"deep learning",
+"Hyperparameter tuning with Keras Tuner",
+"Random search (5 trials, objective val_accuracy) over layer sizes and units on a public diabetes CSV.",
+"lab",
+"Keras Tuner · TensorFlow · pandas",
+"best val_accuracy logged in the notebook: 0.7821",
+"deep-learning-fundamentals/optimization/tuner.ipynb"
+],
+[
+"deep learning",
+"PyTorch tensors, autograd and nn.Module",
+"A 67-cell autograd walkthrough plus a short nn.Module notebook with torchinfo summaries.",
+"lab",
+"PyTorch · torchinfo",
+"",
+[
+"deep-learning-fundamentals/pytorch-basics/pytorch_autograd.ipynb",
+"deep-learning-fundamentals/pytorch-basics/using-nn-module.ipynb"
+]
+],
+[
+"deep learning",
+"PyTorch training pipeline",
+"A hand-written training and evaluation loop in PyTorch with plots.",
+"lab",
+"PyTorch · scikit-learn · pandas",
+"accuracy printed in the notebook: 0.9737",
+"deep-learning-fundamentals/pytorch-basics/training-pipeline.ipynb"
+],
+[
+"deep learning",
+"Fashion-MNIST ANN (PyTorch)",
+"A fully connected PyTorch network (Linear 128, then 64 units) trained on the Fashion-MNIST CSVs through a custom Dataset.",
+"lab",
+"PyTorch · torchinfo · pandas",
+"",
+"deep-learning-fundamentals/pytorch-basics/ann-fashion-mnist.ipynb"
+],
+[
+"deep learning",
+"CNNs and VGG16 transfer learning (PyTorch)",
+"A custom ConvNN plus a transfer-learning variant that reuses a pretrained VGG16 and optimises only its classifier head.",
+"lab",
+"PyTorch · torchvision",
+"",
+"deep-learning-fundamentals/pytorch-basics/cnn.ipynb"
+],
+[
+"deep learning",
+"Audio classification with mel spectrograms",
+"Clips loaded with torchaudio and converted to mel spectrograms in dB for a PyTorch classifier. Dataset paths are local, so the data is not in the repo.",
+"lab",
+"PyTorch · torchaudio",
+"",
+"deep-learning-fundamentals/pytorch-basics/audio-classification.ipynb"
+],
+[
+"deep learning",
+"Hyperparameter search with Optuna",
+"An Optuna search over a PyTorch model setup, with torchinfo summaries.",
+"lab",
+"PyTorch · Optuna",
+"",
+"deep-learning-fundamentals/pytorch-basics/optuna.ipynb"
+],
+[
+"NLP",
+"RNN on a question-answer dataset",
+"A PyTorch nn.RNN (input 50, hidden 64) with a custom QADataset over a 100-row QA CSV.",
+"mental",
+"PyTorch · pandas · scikit-learn",
+"",
+"deep-learning-fundamentals/pytorch-basics/Rrnn.ipynb"
+],
+[
+"NLP",
+"Backpropagation through time",
+"An RNN training notebook with sigmoid activations that plots its BPTT training history.",
+"mental",
+"NumPy · PyTorch · matplotlib",
+"",
+"deep-learning-fundamentals/rnn-nlp-basics/bptt.ipynb"
+],
+[
+"NLP",
+"Text preprocessing pipeline",
+"NLTK tokenisation, stop-word removal and lemmatisation, with retry-wrapped web requests (tenacity) and TensorFlow/Keras Tuner imports for modelling.",
+"mental",
+"NLTK · pandas · scikit-learn · tenacity",
+"",
+"deep-learning-fundamentals/rnn-nlp-basics/text-preprocessing.ipynb"
+],
+[
+"NLP",
+"Word2Vec on Friends scripts",
+"gensim Word2Vec trained on text from Datasets/friends, with a later LSTM section. The second link is the official TensorFlow word2vec tutorial, not original work.",
+"mental",
+"gensim · NLTK",
+"LSTM section logs accuracy 0.667",
+[
+"deep-learning-fundamentals/rnn-nlp-basics/word2vec_freinds.ipynb",
+"deep-learning-fundamentals/rnn-nlp-basics/word2vec_tut.ipynb"
+]
+],
+[
+"computer vision",
+"CNN feature-map visualiser",
+"Keras notebook with seven plots for inspecting what a CNN learns in its layers.",
+"grid",
+"Keras · TensorFlow · matplotlib",
+"",
+"computer-vision/cnn-visualiser.ipynb"
+],
+[
+"computer vision",
+"Simpson image saliency and interpretability",
+"A Keras CNN on cartoon images evaluated with a confusion matrix and classification report, then tf-keras-vis saliency to see what the model attends to.",
+"grid",
+"Keras · tf-keras-vis · OpenCV · scikit-learn",
+"printed accuracy: 0.743 on 990 images",
+"computer-vision/the-simpson-saliency.ipynb"
+],
+[
+"computer vision",
+"Single-image data augmentation",
+"A Keras Sequential pipeline (random flip, rotation, zoom, brightness, contrast) applied to one image.",
+"grid",
+"TensorFlow/Keras · matplotlib",
+"",
+"computer-vision/single-image-data-augmentation.ipynb"
+],
+[
+"computer vision",
+"OpenCV basics: read, rescale, draw, colour spaces",
+"Scripts for reading media with rescale and changeRes helpers, drawing and writing text, and colour-space conversion.",
+"grid",
+"OpenCV · NumPy",
+"",
+[
+"computer-vision/opencv/basic.py",
+"computer-vision/opencv/read.py",
+"computer-vision/opencv/draw-write.py",
+"computer-vision/opencv/color-space.py"
+]
+],
+[
+"computer vision",
+"OpenCV capture and frame extraction",
+"Camera-capture and video frame-extraction scripts, plus a small H.264-to-MP4 conversion helper.",
+"grid",
+"OpenCV · subprocess",
+"",
+[
+"computer-vision/opencv/capture.py",
+"computer-vision/opencv/framecapture.py",
+"computer-vision/opencv/h264.py"
+]
+],
+[
+"computer vision",
+"OpenCV geometric transforms",
+"translate and rotate functions for images.",
+"grid",
+"OpenCV · NumPy",
+"",
+"computer-vision/opencv/image_trf.py"
+],
+[
+"time series",
+"Time-series analysis on stock prices",
+"Early notebook that pulls AAPL prices with yfinance and plots the closing price. For serious forecasting see the load-forecasting project.",
+"forecast",
+"yfinance · pandas",
+"",
+"deep-learning-fundamentals/time-series-analysis/01.ipynb"
+],
+[
+"end-to-end",
+"Brain tumour classification app",
+"A Streamlit app (BrainTumorCNN, MRI preprocessing, upload and predict) and its training notebook. Educational project, not a clinically validated tool; standalone repos exist too.",
+"tumour",
+"PyTorch · Streamlit · OpenCV",
+"notebook logs 89.86% test accuracy on 1,311 images",
+[
+"projects/brain-tumor-classification/app.py",
+"projects/brain-tumor-classification/tumor-classification.ipynb"
+]
+],
+[
+"end-to-end",
+"Volatility-aware load forecasting",
+"In the lab this folder is only a pointer, so this links to the standalone repository where the notebooks and plots live (featured above).",
+"forecast",
+"Conv1D-LSTM · ARIMA",
+"README test RMSE for the baseline: 1.1772 kW",
+"https://github.com/sshiv-1/volatility-aware-load-forecasting/tree/main/notebooks"
+]
+];
+const cats=['all',...CAT];let cur='all';
 function lab(){$('#chips').innerHTML=cats.map(c=>`<button aria-pressed="${c===cur}" data-c="${c}">${c}</button>`).join('');
 const L=LAB.filter(x=>cur==='all'||x[0]===cur);$('#lidx').textContent=`showing ${L.length}/${LAB.length}`;
-$('#posts').innerHTML=L.map(x=>`<div class="post ln"><div class="pt">${svg(x[4])}</div><div><h4><a href="${B+x[3]}" target="_blank" rel="noopener">${x[1]}</a><span class="m">${x[0]} · ${x[5]}</span></h4><p>${x[2]}</p><a class="mono" style="font-size:13px" href="${B+x[3]}" target="_blank" rel="noopener">${x[6]} ↗</a></div></div>`).join('');allp()}
+$('#posts').innerHTML=L.map(x=>{const ps=[].concat(x[6]),m=ps.length>1;return `<div class="post ln"><div class="pt">${svg(x[3])}</div><div><h4>${x[1]}<span class="m">${x[0]} · ${x[4]}</span></h4><p>${x[2]}</p>${x[5]?`<p class="cap">result: ${x[5]}</p>`:''}<div class="lk" style="margin-top:2px">${ps.map(p=>`<a href="${href(p)}" target="_blank" rel="noopener">${lb(p,m)} ↗</a>`).join('')}</div></div></div>`}).join('');allp()}
 $('#chips').onclick=e=>{if(e.target.dataset.c){cur=e.target.dataset.c;lab();$('#chips [aria-pressed=true]').focus()}};lab();
 // ---- skills graph
 const SK=[['python',P.map(p=>p[0])],['agents · langgraph',['fiat','sage']],['pytorch',['tumour-mri','ai-eng-lab']],['react · fastapi',['sage','tumour-mri']],['numpy · pandas · sklearn',['ml-scratch','ai-eng-lab','f1-quali','mental-health','personality']]];
 (()=>{const cx=280,cy=160;let s='';const pos=SK.map((_,i)=>{const a=-Math.PI/2+i*2*Math.PI/SK.length;return[cx+Math.cos(a)*190*1.0,cy+Math.sin(a)*115]});
 pos.forEach(p=>s+=`<path class="a" style="opacity:.5" d="M${cx} ${cy}L${p[0]} ${p[1]}"/>`);
-SK.forEach((k,i)=>{const[x,y]=pos[i];s+=`<g tabindex="0" data-i="${i}" role="button" aria-label="${k[0]}: ${k[1].length} projects"><circle class="w" cx="${x}" cy="${y}" r="17"/><text class="t" x="${x}" y="${y+3}" text-anchor="middle" style="fill:#2455A4;font-weight:600">${k[1].length}</text><text class="t" x="${x}" y="${y+(y<cy?-26:34)}" text-anchor="middle">${k[0]}</text></g>`});
-s+=`<circle class="w" cx="${cx}" cy="${cy}" r="19" style="fill:#EAF3FF"/><text class="t" x="${cx}" y="${cy+3}" text-anchor="middle" style="fill:#2455A4;font-weight:600">SS</text>`;$('#gsvg').innerHTML=s;
+SK.forEach((k,i)=>{const[x,y]=pos[i];s+=`<g tabindex="0" data-i="${i}" role="button" aria-label="${k[0]}: ${k[1].length} projects"><circle class="w" cx="${x}" cy="${y}" r="17"/><text class="t" x="${x}" y="${y+3}" text-anchor="middle" style="fill:var(--strong);font-weight:600">${k[1].length}</text><text class="t" x="${x}" y="${y+(y<cy?-26:34)}" text-anchor="middle">${k[0]}</text></g>`});
+s+=`<circle class="w" cx="${cx}" cy="${cy}" r="19" style="fill:var(--pale)"/><text class="t" x="${cx}" y="${cy+3}" text-anchor="middle" style="fill:var(--strong);font-weight:600">SS</text>`;$('#gsvg').innerHTML=s;
 const show=e=>{const g=e.target.closest('g[data-i]');if(g){const k=SK[+g.dataset.i];$('#gtxt').textContent=k[0]+' → '+k[1].map(id=>P.find(p=>p[0]===id)[2]).join(', ')}};
 $('#gsvg').addEventListener('mouseover',show);$('#gsvg').addEventListener('focusin',show);$('#gsvg').addEventListener('click',show)})();
 // ---- fiat sim
